@@ -33,12 +33,12 @@ namespace TaxExample
 
         static int GetTaxBracket(int income) {
             if(income < minIncomes[0]) {
-                return -1;
+                return -1; // if the income is lower than the first bracket, no tax
             } else {
                 int taxBracket = 0;
                 for(int i=0; i < minIncomes.Length; i++) {
                     if(income > minIncomes[i]) {
-                        taxBracket = i;
+                        taxBracket = i; //keep updating the tax bracket until the income is lower
                     }
                 }
                 return taxBracket;  
@@ -47,17 +47,20 @@ namespace TaxExample
 
         static double CalculateIncomeTax(int income, int taxBracket) {
 
-            if(taxBracket == -1) return 0;
+            if(taxBracket == -1) return 0; // no tax 
 
+            // get all the variables for calculation
             int minIncome = minIncomes[taxBracket];
             double taxRate = taxRates[taxBracket];
             int basePayableAmount = basePayableAmounts[taxBracket];
-            Console.WriteLine(basePayableAmount);
+
+            // calculate the income tax per formula
             double incomeTax = ((income - minIncome) * taxRate) + basePayableAmount;
             return incomeTax;
         }
 
         static void PrintResult(int income, double tax) {
+            // .ToString("C2") prints an int using $ and to 2 decimal places
             Console.Write("For taxable annual income of " + income.ToString("C2"));
             Console.WriteLine(", the tax payable amount is " + tax.ToString("C2"));
         }
