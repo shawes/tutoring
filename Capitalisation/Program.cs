@@ -11,19 +11,21 @@ namespace Capitalisation
             string phrase = Console.ReadLine();
 
             string[] words = phrase.Split(' ');
-            string[] firstWord = new string[3] { "a", "the", "of" };
+            string[] doNotCapitaliseList = new string[3] { "a", "the", "of" };
 
-            var word = words[0];
-            words[0] = Char.ToUpper(word[0]) + words[0].Substring(1);
+            words[0] = ToSentenceCase(words[0]); // Capitalise the first word regardless
 
             for (int i = 1; i < words.Length; i++){
-                if(!firstWord.Contains(words[i])) {
-                    var tempWord = words[i];
-                    words[i] = Char.ToUpper(tempWord[0]) + words[i].Substring(1);
+                if(!doNotCapitaliseList.Contains(words[i])) {
+                    words[i] = ToSentenceCase(words[i]);
                 }
             }
+
             Console.WriteLine(String.Join(' ',words));
-            
+        }
+
+        private static String ToSentenceCase(String s) {
+             return Char.ToUpper(s[0]) + s.Substring(1);
         }
     
     }
