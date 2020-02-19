@@ -7,18 +7,17 @@ namespace Palindromes
         static void Main(string[] args)
         {
             Console.WriteLine("Enter a phrase: ");
+
             string phrase = Console.ReadLine().ToLower();
             string reversephrase = Reverse(phrase);
-            //reversephrase += phrase;
-            //for (int i = phrase.Length - 1; i >= 0; i--) {
 
-            if (phrase == reversephrase)
+            if (phrase.CompareTo(reversephrase) == 0)
             {
-                Console.WriteLine("Palindrome");
+                Console.WriteLine("You have found a palindrome. Claps");
             }
             else
             {
-                Console.WriteLine("Not a palindrome");
+                Console.WriteLine("Get out of here, this isn't a palindrome");
             }
             // }
         }
