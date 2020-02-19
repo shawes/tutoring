@@ -15,18 +15,21 @@ namespace Capitalisation
 
             words[0] = ToSentenceCase(words[0]); // Capitalise the first word regardless
 
-            for (int i = 1; i < words.Length; i++){
-                if(!doNotCapitaliseList.Contains(words[i])) {
+            for (int i = 1; i < words.Length; i++)
+            {
+                if (!doNotCapitaliseList.Contains(words[i]))
+                {
                     words[i] = ToSentenceCase(words[i]);
                 }
             }
 
-            Console.WriteLine(String.Join(' ',words));
+            Console.WriteLine(String.Join(' ', words));
         }
 
-        private static String ToSentenceCase(String s) {
-             return Char.ToUpper(s[0]) + s.Substring(1);
+        private static String ToSentenceCase(String s)
+        {
+            return Char.ToUpper(s[0]) + s.Substring(1);
         }
-    
+
     }
 }
