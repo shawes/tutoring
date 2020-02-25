@@ -24,6 +24,7 @@ namespace Banking
 
 
             var myBranch = new BankBranch("POSB-Bedok", "Tan Chuan-Jin");
+            
             myBranch.PrintCustomers();
             myBranch.AddAccount(myBankAccount1);
             myBranch.AddAccount(myBankAccount2);
